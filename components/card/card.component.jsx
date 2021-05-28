@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const CardQuote = () => {
+const CardQuote = ({task}) => {
 
     return (
         <Card style={styles.card}>

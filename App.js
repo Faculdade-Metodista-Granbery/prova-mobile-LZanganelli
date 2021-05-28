@@ -15,7 +15,7 @@ export default function App() {
       <StatusBar
         animated={true}
         backgroundColor="#c64242"
-       />
+      />
         <FlatList data ={notList}
         CardExtractor={itens => itens.id}
         renderItem={({ itens }) =>
