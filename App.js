@@ -17,10 +17,10 @@ export default function App() {
         backgroundColor={"#c64242"}
       />
         <FlatList data ={notList}
-        CardExtractor={itens => itens.id}
-        renderItem={({ itens }) =>
-          <CardQuote task ={itens.task}
-          background={itens.background}
+        CardExtractor={item => item.id}
+        renderItem={({ item }) =>
+          <CardQuote task ={item.task}
+          background={item.background}
           />
           }> 
         </FlatList>
