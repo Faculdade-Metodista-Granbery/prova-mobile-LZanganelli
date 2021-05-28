@@ -16,7 +16,16 @@ export default function App() {
         animated={true}
         backgroundColor="#c64242"
        />
-          <CardQuote />
+        <FlatList data ={notList}
+        CardExtractor={itens => itens.id}
+        renderItem={({ itens }) =>
+          <CardQuote task ={itens.task}
+          background={itens.background}
+          />
+          }> 
+        </FlatList>
+
+
 
 
     </SafeAreaView>
