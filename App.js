@@ -14,7 +14,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor="#c64242"
+        backgroundColor={"#c64242"}
       />
         <FlatList data ={notList}
         CardExtractor={itens => itens.id}
@@ -24,10 +24,6 @@ export default function App() {
           />
           }> 
         </FlatList>
-
-
-
-
     </SafeAreaView>
   );
 }

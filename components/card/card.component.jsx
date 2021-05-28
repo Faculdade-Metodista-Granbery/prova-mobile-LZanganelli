@@ -20,18 +20,18 @@ const styles = StyleSheet.create({
     },
 });
 
-const CardQuote = ({task}) => {
+const CardQuote = ({task, background}) => {
 
     return (
         <Card style={styles.card}>
             <Card.Cover
                 style={styles.cover}
                 resizeMode={`cover`}
-                source={{ uri: '' }} />
+                source={{ uri: background }} />
+                <Paragraph>{task}</Paragraph>
             <Card.Content style={styles.content}>
             </Card.Content>
             <Card.Actions>
-                <Paragraph>{task}</Paragraph>
             </Card.Actions>
         </Card>
     )
