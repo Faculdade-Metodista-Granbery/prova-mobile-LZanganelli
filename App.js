@@ -1,6 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, StatusBar } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, StatusBar, TouchableOpacity } from 'react-native';
 import CardQuote from './components/card/card.component';
+import {Switch} from 'react-native-paper'
 
 const notList = [
   { id: 1, task: 'Suco de gratidão + clorofila', background: 'https://image.freepik.com/free-vector/flat-night-sky-background_23-2148032671.jpg'},
@@ -9,21 +10,28 @@ const notList = [
 ]
 
 export default function App() {
+  const [theme, setTheme] = useState(false)
+
+	const _handleTheme = () => setTheme(!theme)
+
+
   return (
 
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, {backgroundColor: theme ? '#444444' : '#EBF5F7'}]}>
       <StatusBar
         animated={true}
         backgroundColor={"#c64242"}
       />
+		<Switch value={theme} onValueChange={_handleTheme} />
+
         <FlatList data ={notList}
-        CardExtractor={item => item.id}
-        renderItem={({ item }) =>
-          <CardQuote task ={item.task}
-          background={item.background}
-          />
-          }> 
-        </FlatList>
+          CardExtractor={item => item.id}
+          renderItem={({ item }) => 
+            <CardQuote task ={item.task}
+              background={item.background}
+            />
+          }
+        /> 
     </SafeAreaView>
   );
 }
@@ -31,7 +39,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EBF5F7',
     alignItems: 'center',
     justifyContent: 'center',
   },

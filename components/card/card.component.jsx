@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Card, Paragraph } from 'react-native-paper';
+import { Card, Paragraph, Button } from 'react-native-paper';
 
 
 const styles = StyleSheet.create({
@@ -21,6 +21,14 @@ const styles = StyleSheet.create({
 });
 
 const CardQuote = ({task, background}) => {
+const [likeButton, setLikebutton] = useState("play");  
+const handleLike = () => {
+    if (likeButton === "play") {
+        setLikebutton("math-norm")
+    } else {
+        setLikebutton("play")
+    }
+}  
 
     return (
         <Card style={styles.card}>
@@ -32,6 +40,11 @@ const CardQuote = ({task, background}) => {
             <Card.Content style={styles.content}>
             </Card.Content>
             <Card.Actions>
+                <Button onPress={handleLike}
+                icon={likeButton}
+                labelStyle={{fontSize: 70}}
+                />
+                
             </Card.Actions>
         </Card>
     )
